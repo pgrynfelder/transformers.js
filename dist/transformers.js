@@ -3854,8 +3854,12 @@ async function pipeline(
     let pipelineInfo = SUPPORTED_TASKS[task.split('_', 1)[0]];
     if (!pipelineInfo) {
         // throw Error(`Unsupported pipeline: ${task}. Must be one of [${Object.keys(SUPPORTED_TASKS)}]`)
-        console.log(`Unsupported pipeline: ${task}. Falling back to default Pipeline. Should be one of [${Object.keys(SUPPORTED_TASKS)}]`)
-        pipelineInfo = {"pipeline": Pipeline}
+        console.log(`Unsupported pipeline: ${task}. Falling back to default Pipeline with AutoTokenizer and AutoModel. Should be one of [${Object.keys(SUPPORTED_TASKS)}]`)
+        pipelineInfo = {
+        pipeline: Pipeline,
+        tokenizer: AutoTokenizer,
+        model: AutoModel,
+        };
     }
 
 

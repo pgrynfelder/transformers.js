@@ -772,7 +772,9 @@ async function pipeline(
     // Get pipeline info
     let pipelineInfo = SUPPORTED_TASKS[task.split('_', 1)[0]];
     if (!pipelineInfo) {
-        throw Error(`Unsupported pipeline: ${task}. Must be one of [${Object.keys(SUPPORTED_TASKS)}]`)
+        // throw Error(`Unsupported pipeline: ${task}. Must be one of [${Object.keys(SUPPORTED_TASKS)}]`)
+        console.log(`Unsupported pipeline: ${task}. Falling back to default Pipeline. Should be one of [${Object.keys(SUPPORTED_TASKS)}]`)
+        pipelineInfo = {"pipeline": Pipeline}
     }
 
 
